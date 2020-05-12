@@ -86,3 +86,28 @@ Another aspect of Kotlin's pragmatism is its focus on tooling. The IntelliJ IDEA
 the compiler, and language features were always designed with tooling in mind.
 
 #### Concise
+
+Kotlin has a rich standard library that lets you replace long, repetitive sections of code with library method calls.
+
+Kotlin's support for lambdas makes it easy to pass small blocks of code to library functions. This helps to encapsulate
+all the common parts in the library and keep only the unique, task-specific portion in the user code.
+
+Cocise code:
+* less time to write
+* less time to read.
+
+#### Safe 
+
+* Type safety with type inference
+* Error check in compile time.
+* Remove `NullPointerException`
+* Avoid `ClassCastException`
+
+```kotlin
+// may be null
+val s: String? = null
+// may NOT be null
+val s2: String = ""
+```
+
+#### Interoperable
