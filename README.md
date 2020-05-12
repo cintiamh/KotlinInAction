@@ -129,3 +129,35 @@ You can use the `kotlinc` command to compile your code.
 Code compiled with Kotlin compiler depends on the **Kotlin runtime library**.
 
 ## Kotlin Basics 
+
+### Basic elements: functions and variables
+
+Encorages immutable data.
+
+#### Hello, World!
+
+```kotlin
+fun main(args: Array<String>) {
+    println("Hello, World!")
+}
+```
+
+* `fun` => declare function
+* The parameter type is after the name.
+* The function can be at the top level, it doesn't need to be in a class.
+* Arrays are just classes
+* You don't need to declare `System.out.println`.
+* You can omit the semicolon at the end.
+
+#### Functions
+
+```kotlin
+fun max(a: Int, b: Int): Int {
+    return if (a > b) a else b
+}
+```
+
+##### Statements and expressions
+
+* Expression - has a value, which can be used as part of another expression.
+* Statement - is always a top-level element in its enclosing block and doesn't have its own value.
