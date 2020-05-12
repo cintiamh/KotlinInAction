@@ -111,3 +111,21 @@ val s2: String = ""
 ```
 
 #### Interoperable
+
+You can work on Kotlin with Java and vice-versa. Kotlin uses existing Java frameworks.
+
+### Using the Kotlin tools
+
+#### Compiling Kotlin code
+
+Kotlin source code file extension is `.kt`.
+
+The Kotlin compiler generates a `.class` file.
+
+The generated `.class` files are then packaged and executed using the standard procedure for the type application you're working on.
+
+You can use the `kotlinc` command to compile your code.
+
+Code compiled with Kotlin compiler depends on the **Kotlin runtime library**.
+
+## Kotlin Basics 
