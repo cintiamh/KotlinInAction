@@ -161,3 +161,24 @@ fun max(a: Int, b: Int): Int {
 
 * Expression - has a value, which can be used as part of another expression.
 * Statement - is always a top-level element in its enclosing block and doesn't have its own value.
+
+Simplify even more:
+
+```kotlin
+fun max(a: Int, b:Int): Int = if (a > b) a else b
+```
+
+* **block body** - function with body between curly braces
+* **expression body** - function returns and expression directly
+
+Simplify even more:
+```kotlin
+fun max(a: Int, b: Int) = if (a > b) a else b
+```
+
+* **type inference** for expression body functions, the compiler can analyze the expression used as the body of the 
+function and use its type as the function return type.
+
+Note that for block body functions you need to explicitly define the return type.
+
+#### Variables
