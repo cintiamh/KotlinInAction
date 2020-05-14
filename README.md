@@ -182,3 +182,62 @@ function and use its type as the function return type.
 Note that for block body functions you need to explicitly define the return type.
 
 #### Variables
+
+Kotlin allows to omit the type from many variable declarations.
+
+There are two keywords to declare variables:
+* **val** (from value) - immutable reference.
+* **var** (from variable) - mutable reference. but type is fixed.
+
+Prefere to declare as `val`.
+
+```kotlin
+val message: String
+if (canPerformOperation()) {
+    message = "Success"
+}
+else {
+    message = "Failed"
+}
+```
+
+#### Easier string formatting: string templates
+
+```kotlin
+fun main(args: Array<String>) {
+    val name = if (args.size > 0) args[0] else "Kotlin"
+    println("Hello, $name!")
+}
+```
+
+More complex:
+```kotlin
+fun main(args: Array<String>) {
+    println("Hello, ${if (args.size > 0) args[0] else "someone"}")
+}
+```
+
+### Classes and Properties
+
+**Value Objects** => Classes containing only data but no code
+
+```kotlin
+class Person(val name: String)
+```
+
+#### Properties
+
+Java
+* **accessor methods** getters and setters.
+* **property** the combination of the field and its accessor.
+
+In Kotlin you declare the property in a class the same way to declare a variable: with `val` and `var` keywords.
+
+If the property name starts with `is`, no additional prefix is added.
+
+```kotlin
+println(person.isMarried)
+``` 
+
+#### Custom accessors
+
