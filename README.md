@@ -241,3 +241,87 @@ println(person.isMarried)
 
 #### Custom accessors
 
+```kotlin
+class Rectangle(val height: Int, val width: Int) {
+    val isSquare: Boolean
+        get() {
+            return height == width
+        }
+}
+```
+
+#### Kotlin source code layout: directories and packages
+
+Like in Java, Kotlin has the concept of packages.
+Every Kotlin file can have a `package` statement at the beginning.
+If classes are inside the same package, they don't need to be imported.
+Import statements are placed at the beginning of the file using the `import` keyword.
+
+```kotlin
+package geometry.shapes
+
+import java.util.Random
+
+class Rectangle(val height: Int, val width: Int) {
+    val isSquare: Boolean
+        get() {
+            return height == width
+        }
+}
+
+fun createRandomRectangle(): Rectangle {
+    val random = Random()
+    return Rectangle(random.nextInt(), random.nextInt())
+}
+```
+
+Kotlin doesn't make any distinction between importing a class or a function.
+
+Importing from another package
+```kotlin
+package geometry.example
+import geometry.shape.createRadomRectangle
+
+fun main(args: Array<String>) {
+    println(createRandomRectangle().isSquare)
+}
+```
+
+Kotlin allows to have multiple classes in a single file and choose any name for the file.
+You can also use any directory structure for the file.
+
+But it's a good idea to follow Java's package structure.
+```
+- geometry/
+    - example/
+        - Main
+    - shapes/
+        - Rectangle
+        - RectangleUtil
+```
+
+### Representing and handling choices: enums and "when"
+
+`when` => Java's `switch`
+
+#### Declaring enum classes
+
+```kotlin
+enum class Color {
+    RED, ORANGE, YELLOW, GREEN, BLUE, INDIGO, VIOLET
+}
+```
+
+Enums with properties:
+```kotlin
+enum class Color(val r: Int, val g: Int, val b: Int) {
+    RED(255, 0, 0), ORANGE(255, 165, 0), YELLOW(255, 255, 0), GREEN(0, 255, 0),
+    BLUE(0, 0, 255), INDIGO(75, 0, 130), VIOLET(238, 130, 238);
+
+    fun rgb() = (r * 256 + g) * 256 + b
+}
+```
+
+The semicolon separates the enum constant list from the method definitions.
+
+#### Using "when" to deal with enum classes
