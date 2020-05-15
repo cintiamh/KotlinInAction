@@ -325,3 +325,19 @@ enum class Color(val r: Int, val g: Int, val b: Int) {
 The semicolon separates the enum constant list from the method definitions.
 
 #### Using "when" to deal with enum classes
+
+```kotlin
+fun getMnemonic(color: Color) =
+    when (color) {
+        Color.RED -> "Richard"
+        Color.ORANGE -> "Of"
+        Color.YELLOW -> "York"
+        Color.GREEN -> "Gave"
+        Color.BLUE -> "Battle"
+        Color.INDIGO -> "In"
+        Color.VIOLET -> "Vain"
+    }
+
+>>> println(getMnemonic(Color.BLUE))
+Battle
+```
