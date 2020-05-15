@@ -326,6 +326,9 @@ The semicolon separates the enum constant list from the method definitions.
 
 #### Using "when" to deal with enum classes
 
+`when` is an expression that returns a value, so you can write a function with an expression body, returning `when` 
+expression directly.
+
 ```kotlin
 fun getMnemonic(color: Color) =
     when (color) {
@@ -341,3 +344,29 @@ fun getMnemonic(color: Color) =
 >>> println(getMnemonic(Color.BLUE))
 Battle
 ```
+
+You can also combine multiple values in the same branch if you separate them with commas.
+
+```kotlin
+fun getWarmth(color: Color) = 
+    when(color) {
+        Color.RED, Color.ORANGE, Color.YELLOW -> "warm"
+        Color.GREEN -> "neutral"
+        Color.BLUE, Color.INDIGO, Color.VIOLET -> "cold"
+    }
+```
+
+You can import the constant values from enums:
+```kotlin
+import ch02.colors.Color
+import ch02.colors.Color.*
+
+fun getWarmth(color: Color) = 
+    when(color) {
+        RED, ORANGE, YELLOW -> "warm"
+        GREEN -> "neutral"
+        BLUE, INDIGO, VIOLET -> "cold"
+    }
+```
+
+#### Using `when` with arbitrary objects
