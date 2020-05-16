@@ -569,3 +569,19 @@ fun readNumber(reader: BufferedReader): Int? {
 The `throws` clause isn't present in the code.
 
 #### "try" as an expression
+
+The `try` keyword in Kotlin introduces an expression, and you can assign its value to a variable.
+Unlike with `if`, you always need to enclose the statement body in curly braces.
+
+```kotlin
+fun readNumber(reader: BufferedReader): Int? {
+    val number = try { 
+        Integer.parseInt(reader.readLine())
+    } catch (e: NumberFormatException) {
+        null
+    }
+    println(number)
+}
+```
+
+## Defining and calling functions
