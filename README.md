@@ -386,3 +386,79 @@ fun mix(c1: Color, c2: Color) =
 `setOf` => creates a `Set`. A `set` is a collection for which the order of items doesn't matter.
 
 #### Using `when` without an argument 
+
+Instantiate `Set` for all possibilities all the time could get innefficient. A more efficient way to implement is:
+
+```kotlin
+fun mixOptimized(c1: Color, c2: Color) =
+    when {
+        (c1 == RED && c2 == YELLOW) || (c1 == YELLOW && c2 == RED) -> ORANGE
+        (c1 == YELLOW && c2 == BLUE) || (c1 == BLUE && c2 == YELLOW) -> GREEN
+        (c1 == BLUE && c2 == VIOLET) || (c1 == VIOLET && c2 == BLUE) -> INDIGO
+        else -> throw Exception("Dirty color")
+    }
+```
+
+#### Smart casts: combining type checks and casts
+
+```kotlin
+interface Expr
+class Num(val value: Int) : Expr
+class Sum(val left: Expr, val right: Expr) : Expr
+
+>>> println (eval(Sum(Shum(Num(1), Num(2)), Num(4))))
+```
+
+In Kotlin, you check type using `is` check.
+
+`smart cast` => The compiler performs the cast for you.
+
+#### Refactoring: replacing "if" with "when"
+
+In Kotlin, there is no ternary operator because, unlike in Java, the `if` expression returns a value.
+
+```kotlin
+fun eval(e: Expr): Int =
+    if (e is Num) {
+        e.value
+    } else if (e is Sum) {
+        eval(e.right) + eval(e.left)
+    } else {
+        throw IllegalArgumentException("Unknown expression")
+    }
+``` 
+
+Rewriting with `when`
+```kotlin
+fun eval(e: Expr): Int =
+    when (e) {
+        is Num -> e.value
+        is Sum -> eval(e.right) + eval(e.left)
+        else -> throw IllegalArgumentException("Unknown expression")
+    }
+```
+
+#### Blocks as branches of "if" and "when"
+
+```kotlin
+fun evalWithLogging(e: Expr): Int =
+    when(e) {
+        is Num -> {
+            println("num: ${e.value}")
+            e.value
+        }
+        is Sum -> {
+            val left = evalWithLogging(e.left)
+            val right = evalWithLogging(e.right)
+            println("sum: $left + $right")
+            left + right
+        }
+        else -> throw IllegalArgumentException("Unknown expression")
+    }
+```
+
+The last expression in a block is the result.
+
+A function can have either an expression body that can't be a block or a block body with explicit `return` statement inside.
+
+### Iterating over things: "while" and "for" loops
