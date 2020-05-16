@@ -462,3 +462,69 @@ The last expression in a block is the result.
 A function can have either an expression body that can't be a block or a block body with explicit `return` statement inside.
 
 ### Iterating over things: "while" and "for" loops
+
+#### The "while" loop
+
+Just like Java.
+
+```kotlin
+while (condition) {
+    /* ... */
+}
+
+do {
+    /* ... */
+} while (condition)
+```
+
+#### Iterating over numbers: ranges and progressions
+
+In Kotlin there's no regular Java `for` loop. Kotlin uses `ranges`.
+
+```kotlin
+val oneToTen = 1..10
+```
+
+Ranges in Kotlin are closed or inclusive. (the second value is part of the range.)
+
+**progression** loop over all the values in a range.
+
+```kotlin
+fun fizzBuzz(i: Int) = when {
+    i % 15 == 0 -> "FizzBuzz "
+    i % 3 == 0 -> "Fizz "
+    i % 5 == 0 -> "Buzz "
+    else -> "$i "
+}
+
+fun main(args: Array<String>) {
+    for (i in 1..100) {
+        print(fizzBuzz(i))
+    }
+
+    for (i in 100 downTo 1 step 2) print(fizzBuzz(i))
+}
+```
+
+#### Iterating over maps
+
+```kotlin
+package ch02
+
+import java.util.*
+
+fun main(args: Array<String>) {
+    val binaryReps = TreeMap<Char, String>()
+
+    for (c in 'A'..'F') {
+        val binary = Integer.toBinaryString(c.toInt())
+        binaryReps[c] = binary
+    }
+
+    for ((letter, binary) in binaryReps) {
+        println("$letter = $binary")
+    }
+}
+```
+
+#### Using "in" to check collection and range membership
