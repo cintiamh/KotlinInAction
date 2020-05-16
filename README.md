@@ -528,3 +528,44 @@ fun main(args: Array<String>) {
 ```
 
 #### Using "in" to check collection and range membership
+
+* `in` => value is in range.
+* `!in` => value isn't in range.
+
+```kotlin
+fun isLetter(c: Char) = c in 'a'..'z' || c in 'A'..'Z'
+fun isNotDigit(c: Char) = c !in '0'..'9'
+```
+
+If any class supports comparing instances by implementing `java.lang.Comparable`, you can create ranges of objects of that type.
+
+### Exceptions in Kotlin
+
+```kotlin
+import java.lang.IllegalArgumentException
+
+if (percentage !in 0..100) {
+    throw  IllegalArgumentException("A percentage value must be between 0 and 100: $percentage")
+}
+```
+
+You don't need to use `new` keyword to create an instance of the exception.
+
+#### "try", "catch", and "finally"
+
+```kotlin
+fun readNumber(reader: BufferedReader): Int? {
+    try {
+        val line = reader.readLine()
+        return Integer.parseInt(line)
+    } catch (e: NumberFormatException) {
+        return null
+    } finally {
+        reader.close()
+    }
+}
+```
+
+The `throws` clause isn't present in the code.
+
+#### "try" as an expression
