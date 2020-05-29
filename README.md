@@ -1,8 +1,8 @@
 # KotlinInAction
 
-[Kotlin: what and why](#kotlin-what-and-why)
-[Kotlin Basics](#kotlin-basics)
-[Defining and calling functions](#defining-and-calling-functions)
+1. [Kotlin: what and why](#kotlin-what-and-why)
+2. [Kotlin Basics](#kotlin-basics)
+3. [Defining and calling functions](#defining-and-calling-functions)
 
 ## Kotlin: what and why
 
