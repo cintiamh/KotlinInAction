@@ -1,5 +1,9 @@
 # KotlinInAction
 
+[Kotlin: what and why](#kotlin-what-and-why)
+[Kotlin Basics](#kotlin-basics)
+[Defining and calling functions](#defining-and-calling-functions)
+
 ## Kotlin: what and why
 
 Simple Example
@@ -128,7 +132,7 @@ You can use the `kotlinc` command to compile your code.
 
 Code compiled with Kotlin compiler depends on the **Kotlin runtime library**.
 
-## Kotlin Basics 
+## Kotlin Basics
 
 ### Basic elements: functions and variables
 
